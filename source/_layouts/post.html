@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article id="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div id="post-header">
+    <span>
+      {% for tag in page.tags %}
+        {% capture tag_name %}{{ tag }}{% endcapture %}
+        <a href="/tag/{{ tag_name }}">{{ tag_name }}&nbsp;</a>
+      {% endfor %}
+    </span>
+
+    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      {{ page.date | date: date_format }}
+    </time>
+
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+
+    <p id="post-author">Ian Rogren</p>
+    <div id="social-share-icons">
+      <a class="facebook"></a>
+      <a class="google"></a>
+    </div>
+  </div>
+
+
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <div class="post-comments">
+    <div id="disqus_thread"></div>
+    <script>
+
+        var disqus_config = function () {
+
+            this.page.url = 'http://www.vavves.net/' + '{{page.title}}'.replace(' ', '-');  
+            this.page.identifier = '{{page.title}}'.replace(' ', '-'); 
+        };
+        
+        (function() {   
+            var d = document, s = d.createElement('script');
+            s.src = 'https://vvaves.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>       
+  </div>
+  
+</article>

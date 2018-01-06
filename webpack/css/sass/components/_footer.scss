@@ -1,0 +1,27 @@
+footer {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-top: 4rem;
+
+  #footer-inner-container {
+    max-width: 900px;
+    postion: relative;
+    transform: translate3d(0, 0, 0);
+    transition: 600ms ease-in-out 500ms;
+
+    .content {
+      height: 4rem;
+      position: relative;
+
+      #copy {
+        font-size: .8rem;
+        position: absolute;
+        bottom: 20px;
+        right: 5px;
+      }
+    }
+  }
+}

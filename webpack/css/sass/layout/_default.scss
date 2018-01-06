@@ -1,0 +1,40 @@
+.content {
+  max-width: 700px;
+  margin-left: 150px;
+}
+
+#body-container {
+
+  #outter-container {
+    max-width: 900px;
+    min-height: 100%;
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    transition: 300ms ease-in-out 200ms;
+    padding-bottom: 12rem;
+
+    &.menu-open {
+      transform: translate3d(0, 0, -50px);
+      transition-delay: 150ms;
+    }
+
+    #main-content {
+      transform: translate3d(0, 0, 0);
+      transition: 300ms ease-in-out;
+      transition-delay: 150ms;
+    }
+  }
+}
+
+@media all and (max-width: $screen-lg) {
+  .content {
+    margin: 0px auto;
+    padding: 0 40px;
+  }
+}
+
+@media all and (max-width: $screen-sm) {
+  .content {
+    padding: 0 30px;
+  }
+}

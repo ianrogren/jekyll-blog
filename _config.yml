@@ -1,0 +1,20 @@
+title: vvaves
+email: ian.rogren@gmail.com
+description: My little spot of the internet for discussing programming, brewing beer, surfing and whatever projects I might currently be into.
+baseurl: ''
+url: 'http://www.vvaves.net'
+github_username:  ianrogren
+
+# Custom configuations
+destination: ../public
+source: source
+exclude: ['node_modules']
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins: ['jekyll-paginate']
+
+# Pagination
+paginate: 5
+paginate_path: '/posts/page:num'

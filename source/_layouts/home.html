@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<div class="home">
+  
+  {{ content }}
+
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+
+        {% if post.image != null %}
+          <div class="post-image">
+            <a href="{{ post.url | relative_url }}">
+              <img src="/images/banners/{{ post.image }}" />
+            </a>
+          </div>
+        {% endif %}
+
+        <span class="post-tags">
+          {% for tag in post.tags %}
+            {% capture tag_name %}{{ tag }}{% endcapture %}
+            <a href="/tag/{{ tag_name }}">{{ tag_name }}&nbsp;</a>
+          {% endfor %}
+        </span>
+
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <span class="post-date">{{ post.date | date: date_format }}</span>
+
+        <h2>
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+
+        <div class="post-description">
+          {{ post.excerpt }}
+        </div>
+        
+        <a class="read-more" href="{{ post.url | relative_url }}">
+          <span>Read More</span>
+        </a>
+
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>

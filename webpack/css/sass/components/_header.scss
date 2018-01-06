@@ -1,0 +1,200 @@
+header {
+  display: block;
+  width: 100%;
+  height: 250px;
+  background-color: #fff;
+  z-index: 5;
+  animation: header-transition-in 800ms ease forwards;
+  perspective: 1000px;
+
+  nav {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    transition: 600ms ease-in-out 500ms;
+
+    &.menu-open {
+      a.logo {
+        transition-delay: 600ms;
+      }
+    }
+
+    a.logo {
+      font-weight: 100;
+      letter-spacing: -.3rem;
+      float: left;
+      background-color: #0d0d0e;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      text-decoration: none;
+      transition: 800ms ease;
+      font-size: 28px;
+      z-index: 20;
+      height: 150px;
+      width: 150px;
+      position: relative;
+      margin: 50px 0;
+      overflow: hidden;
+      border-radius: 4px;
+
+      span {
+        margin: 0;
+        position: relative;
+        bottom: 0;
+        top: 100px;
+        left: 40px;
+      }
+
+      .wave {
+        opacity: 0;
+        position: absolute;
+        top: 3%;
+        left: 50%;
+        background: #0af;
+        width: 200px;
+        height: 200px;
+        margin-left: -90px;
+        margin-top: -65px;
+        transform-origin: 50% 48%;
+        border-radius: 35%;
+        animation: drift 3000ms infinite linear;
+        transition: opacity 1000ms ease-out;
+      }
+
+      .wave.-five {
+        background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, 0.5));
+        animation: drift 10000ms infinite linear;
+      }
+
+      .wave.-four {
+        background: linear-gradient(to bottom, rgba(#43C6AC, 1), rgba(#F8FFAE, 0) 80%, rgba(white, 0.5));
+        animation: drift 3500ms infinite linear;
+      }
+
+      .wave.-three {
+        animation: drift 2500ms infinite linear;
+      }
+
+      .wave.-two {
+        animation: drift 5000ms infinite linear;
+        opacity: 0;
+        background: yellow;
+      }
+
+      &:hover {
+        background-color: #fff;
+
+        .wave {
+          opacity: 0.4;
+        }
+
+        .wave.-two {
+          opacity: 0.1;
+        }
+
+        .wave.-three {
+          opacity: 0.3;
+        }
+
+        .wave.-four {
+          opacity: 0.5;
+        }
+
+        .wave.-five {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    #nav-toggle {
+      display: inline-block;
+      position: absolute;
+      top: 30px;
+      right: 0px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+
+      @media (max-width: $screen-lg) {
+        right: 30px;
+      }
+
+      &.menu-open {
+        .bar {
+
+          &:nth-child(1), &:nth-child(3) {
+            transform: scaleX(0);
+            opacity: 0;
+          }
+
+          &:nth-child(2) {
+            transform: rotate(-45deg);
+            height: 5px;
+
+            &:after {
+              transform: rotate(-90deg);
+              height: 5px;
+              border-radius: 3px;
+            }
+          }
+        }
+      }
+
+      .bar {
+        position: absolute;
+        width: 20px;
+        height: 3px;
+        background: #000;
+        transition: all 300ms ease;
+        border-radius: 3px;
+
+        &:nth-child(1) {
+          left: 5px;
+          top: 17px;
+        }
+
+        &:nth-child(2) {
+          left: 5px;
+          top: 23px;
+
+          &:after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 20px;
+            height: 3px;
+            background: #000;
+            transition: all 300ms ease;
+          }
+        }
+
+        &:nth-child(3) {
+          right: 15px;
+          top: 29px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes header-transition-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(360deg);
+  }
+}

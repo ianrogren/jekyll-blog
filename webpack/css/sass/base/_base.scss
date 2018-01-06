@@ -1,0 +1,83 @@
+html {
+  box-sizing: border-box;
+  animation: fade-site-in 0.5s ease forwards;
+
+  &.fade-site-out {
+    animation: fade-site-out 0.5s ease forwards;
+  }
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  height: 100%;
+  font-family: $primary-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+}
+
+h1 {
+  text-transform: capitalize;
+}
+
+figure {
+  &.highlight {
+    background-color: transparent;
+  }
+
+  margin: 2rem 0;
+
+  pre {
+    background-color: #f8f8f8;
+    border: 0;
+  }
+}
+
+input {
+  color: #000;
+}
+
+a {
+  transition: 500ms ease;
+  text-decoration: none;
+  color: $link-color;
+
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+p {
+  font-size: 0.9375rem;
+}
+* {
+  backface-visibility: hidden;
+}
+
+@keyframes fade-site-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-site-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

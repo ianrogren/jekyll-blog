@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {% include head.html %}
+  <body>
+    {% if page.url == '/404.html'%}
+      {{ content }}
+      <script type="text/javascript" src="{{ "/assets/bundle.js" | relative_url }}" charset="utf-8"></script>
+    {% elsif page.url == "/about/" %}
+      {% include about.html %}
+    {% else %}
+      <div id="body-container">
+        {% include side-menu.html %}
+        <div id="outter-container">
+          {% include header.html %}
+    	    <div id='main-content' class="content" aria-label="Content">
+    	        {{ content }}
+    	    </div>
+          {% include footer.html %}
+        </div>
+      </div>
+    {% endif %}
+  </body>
+</html>

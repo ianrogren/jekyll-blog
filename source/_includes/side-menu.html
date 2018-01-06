@@ -1,0 +1,28 @@
+<div id="menu-overlay"></div>
+<div id="menu-container">
+    <div id="close-button"></div>
+    <div id="inner-menu-container">
+        <div id="search-container" class="loading hidden">
+            <div id="search-close-button" class="fa fa-arrow-left"></div>
+            <input 
+                onblur="if (this.value == '') {this.value = 'Search';}" 
+                onfocus="if (this.value == 'Search') {this.value = '';}" 
+                type="text" 
+                id="search-input" 
+                name="Search" 
+                value="Search" 
+                size="15" 
+                maxlength="128">
+
+            <div id="search-results"></div>
+        </div>
+        <ul id="menu-links">
+            <li><a href="{{ "/about" | relative_url }}" class="clearfix">About</a></li>
+            <li><a href="{{ "/" | relative_url }}">Blog</a></li>
+            <li><a href="{{ "/tag/projects" | relative_url }}">Projects</a></li>
+            <li id="search-menu-button">Search</li>
+            <li class="minor-link" id="github"><a href="https://github.com/ianrogren">Github</a>
+            <li class="minor-link" id="linkedin"><a href="https://www.linkedin.com/in/ianrogren/">LinkedIn</a></li>
+        </ul>
+    </div>
+</div>

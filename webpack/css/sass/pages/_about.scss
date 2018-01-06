@@ -1,0 +1,140 @@
+#about-page {
+	height: 100%;
+	width: 100%;
+	background: $font-primary-color;
+	color: #fff;
+	position: relative;
+
+	a {
+		color: #fff;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	#about-me {
+		width: 330px;
+    	margin: auto;
+    	position: absolute;
+    	top: 150px;
+    	left: calc(50% - 165px);
+    	z-index: 1;
+		
+		h1 {
+			// font-family: $about-font;
+			color: #fff;
+			text-align: center;
+			animation: fade-about-in 2s ease forwards;
+			margin-bottom: 2rem;
+			font-weight: normal;
+			font-size: 2.2rem;
+		}
+
+		
+		#second-line {
+			animation: fade-about-in 2.5s ease forwards;
+			text-align: center;
+			margin-bottom: 3rem;
+    		font-size: 1.5rem;
+		}
+
+		#third-line {
+			animation: fade-about-in 3s ease forwards;
+			text-align: center;
+			font-size: 0.75rem;
+			padding: 0 2rem;
+			line-height: 1.2rem;
+			color: #ccc;
+		}
+
+
+		#cursor {
+			animation: blink 0.7s ease infinite;
+		}
+
+		.typed {
+			border-bottom: 2px dotted #fff;
+			padding-bottom: 3px;
+			font-weight: bold;
+		}
+
+		.brew-beer {
+			border-bottom: 2px dotted #f1c40f;
+		}
+
+		.fa-beer {
+			color: #f1c40f;
+		}
+
+		.hack-things {
+			border-bottom: 2px dotted #2ecc71;
+		}
+
+		.fa-wrench {
+			color: #2ecc71;
+		}
+
+		.code {
+			border-bottom: 2px dotted #9b59b6;
+		}
+
+		.fa-code {
+			color: #9b59b6;
+		}
+
+		.climb-rocks {
+			border-bottom: 2px dotted #e74c3c;
+		}
+
+		.fa-hand-rock-o {
+			color: #e74c3c;
+		}
+
+		.fa {
+			margin-left: 0.5rem;
+			margin-right: 0.1rem;
+		}
+	}
+
+	#about-animation {
+		margin: 0;
+		top: calc(50% - 300px);
+    	position: relative;
+
+		canvas {
+			display: block;
+			opacity: 0;
+			transform: translate3d(0, 20px, 0);
+			animation: fade-about-in 1s ease forwards;
+			position: relative;
+		    left: calc(50% - 350px);
+		    margin: 0;
+		}
+	}
+}
+
+
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-about-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 2rem, 0);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate3d(0, 2rem, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
