@@ -94,6 +94,7 @@ export function conductSearch(searchData, searchText) {
  */
 exports.searchInit = function searchInit() {
   const request = new XMLHttpRequest();
+  request.responseType = 'json';
 
   request.onreadystatechange = () => {
     if (request.status >= 200 && request.status < 400) {
@@ -104,7 +105,6 @@ exports.searchInit = function searchInit() {
       const innerMenuContainer = document.getElementById('inner-menu-container');
       const searchBox = document.getElementById('search-input');
       const searchContainer = document.getElementById('search-container');
-      const searchJsonData = JSON.parse(request.responseText);
 
       // Instant searh keybinding
       searchContainer.addEventListener('keyup', () => {
@@ -118,7 +118,7 @@ exports.searchInit = function searchInit() {
         }
 
         searchResponse = setTimeout(() => {
-          searchReturn = conductSearch(searchJsonData, searchBox.value);
+          searchReturn = conductSearch(request.response, searchBox.value);
           searchResults.innerHTML = `<ul>${searchReturn}</ul>`;
           setTimeout(() => {
             searchResults.classList.add('show-results');
